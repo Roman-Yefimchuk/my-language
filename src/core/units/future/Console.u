@@ -1,0 +1,128 @@
+unit Console
+{
+	uses Constants, String, Integer, Float;
+
+	interface
+	{
+		native[Constants.CONSOLE]:
+		{
+			static void clear();
+			static void print(string x);
+			static String nextLine();
+		}
+		
+		static int nextInt(int radix):int;
+		static float nextFloat():float;
+		static void print(boolean x);
+		static void print(char x);
+		static void print(char[] x);
+		static void print(int x);
+		static void print(float x);
+		static void println();
+		static void println(boolean x);
+		static void println(char x);
+		static void println(char[] x);
+		static void println(int x);
+		static void println(float x);
+		static void println(string x);
+		static int nextInt():int;
+	}
+	
+	static void newLine();
+	{
+		print(String.valueOf('\n'));
+	}
+	
+	function nextInt(int radix):int;
+	var
+	{
+		string line = nextLine();
+	}
+	{
+		try
+		{
+			return Integer.parseInt(line, radix);
+		}
+		catch
+		{
+			throw("The number is set incorrectly: " + line);
+		}
+	}
+	
+	function nextFloat():float;
+	var
+	{
+		string line = nextLine();
+	}
+	{
+		try
+		{
+			return Float.parseFloat(line);
+		}
+		catch
+		{
+			throw("Fractional number is set incorrectly: " + line);
+		}
+	}
+	
+	function print(boolean x);
+	{
+		print(String.valueOf(x));
+	}
+	
+	function print(char x);
+	{
+		print(String.valueOf(x));
+	}
+	
+	function print(char[] x);
+	{
+		print(String.createString(x));
+	}
+	
+	function println();
+	{
+		newLine();
+	}
+	
+	function println(boolean x);
+	{
+		print(x);
+		newLine();
+	}
+	
+	function println(char x);
+	{
+		print(x);
+		newLine();
+	}
+	
+	function println(char[] x);
+	{
+		print(x);
+		newLine();
+	}
+	
+	function println(int x);
+	{
+		print(String.valueOf(x));
+		newLine();
+	}
+	
+	function println(float x);
+	{
+		print(String.valueOf(x));
+		newLine();
+	}
+	
+	function println(string x);
+	{
+		print(x);
+		newLine();
+	}
+	
+	function nextInt():int;
+	{
+		return nextInt(Integer.DEC);
+	}
+}

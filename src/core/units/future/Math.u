@@ -1,0 +1,109 @@
+unit Math
+{
+	uses Constants;
+	
+	const
+	{
+		PI = 3.1415927;
+		E = 2.7182817;
+	}
+	
+	interface
+	{
+		native[Constants.MATH]:
+		{
+			static float cos(float a);
+			static float sin(float a);
+			static float tan(float a);
+			static float asin(float a);
+			static float acos(float a);
+			static float atan(float a);
+			static float exp(float a);
+			static float log(float a);
+			static float log10(float a);
+			static float sqrt(float a);
+			static float atan2(float y, float x);
+			static float pow(float a, float b);
+			static float floor(float a);
+			static int random(int a);
+			static int random(int min, int max);
+			static void randomize();
+			static int getExponent(float f);
+		}
+		
+		static float sqr(float a);
+		static int sqr(int x);
+		static float toRadians(float angdeg);
+		static float toDegrees(float angrad);
+		static int abs(int a);
+		static float abs(float a);
+		static float max(float a, float b);
+		static float min(float a, float b);
+		static int round(float a);
+	}
+	
+	constructor()
+	{
+	}
+	
+	static float sqr(float a);
+	{
+		return a * a;
+	}
+	
+	static int sqr(int x);
+	{
+		return a * a;
+	}
+	
+	static float toRadians(float angdeg);
+	{
+		return angdeg / 180.0 * PI;
+	}
+	
+	static float toDegrees(float angrad);
+	{
+		return angrad * 180.0 / PI;
+	}
+	
+	static int abs(int a);
+	{
+		return a < 0 ? -a : a;
+	}
+	
+	static float abs(float a);
+	{
+		return a <= 0.0 ? 0.0 - a : a;
+	}
+	
+	static float max(float a, float b);
+	{
+		if (a != a) 
+		{
+			return a;
+		}
+		if ((a == 0.0) && (b == 0.0) && (a == -0.0)) 
+		{
+			return b;
+		}
+		return a >= b ? a : b;
+	}
+	
+	static float min(float a, float b);
+	{
+		if (a != a) 
+		{
+			return a;
+		}
+		if ((a == 0.0) && (b == 0.0) && (b == -0.0)) 
+		{
+			return b;
+		}
+		return (a <= b) ? a : b;
+	}
+	
+	static int round(float a);
+	{
+		return (int)floor(a + 0.5);
+	}
+}

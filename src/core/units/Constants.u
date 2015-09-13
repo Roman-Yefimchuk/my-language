@@ -1,0 +1,18 @@
+unit Constants
+{
+	const
+	{
+		CONSOLE = "libs.ConsoleLibrary";
+		GRAPHICS = "libs.GraphicsLibrary";
+		RUNTIME = "libs.RuntimeLibrary";
+		FLOAT = "libs.FloatLibrary";
+		DATE = "libs.DateLibrary";
+		DISPLAY = "libs.DisplayLibrary";
+		EVENTS = "libs.EventsLibrary";
+		IO = "libs.IOLibrary";
+		MATH = "libs.MathLibrary";
+		SYSTEM = "libs.SystemLibrary";
+		STRING = "libs.StringLibrary";
+		INTEGER = "libs.IntegerLibrary";
+	}
+}

@@ -1,0 +1,59 @@
+unit Integer
+{
+	uses Constants;
+	
+	const
+	{
+		MAX_VALUE = 2147483647;
+		MIN_VALUE = -2147483648;
+		HEX = 16;
+		DEC = 10;
+		OCT = 8;
+		BIN = 2;
+	}
+	
+	interface
+	{
+		native[INTEGER]:
+		{
+			function toString(int i, int radix):string;
+			
+			function parseInt(string s, int radix):int;
+		}
+		
+		function parseInt(string s):int;
+		
+		function toHexString(int i):string;
+		
+		function toOctalString(int i):string;
+		
+		function toBinaryString(int i):string;
+		
+		function toString(int i):string;
+	}
+	
+	function parseInt(string s):int;
+	{
+		return parseInt(s, DEC);
+	}
+	
+	function toHexString(int i):string;
+	{
+		return toString(i, HEX);
+	}
+	
+	function toOctalString(int i):string;
+	{
+		return toString(i, OCT);
+	}
+	
+	function toBinaryString(int i):string;
+	{
+		return toString(i, BIN);
+	}
+	
+	function toString(int i):string;
+	{
+		return toString(i, DEC);
+	}
+}

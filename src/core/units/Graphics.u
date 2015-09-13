@@ -1,0 +1,289 @@
+unit Graphics
+{
+	uses String, Types, Display, Constants;
+
+	record
+	{
+		Font:
+		{
+			private:
+			{
+				object fontData;
+			}
+		}
+		Image:
+		{
+			private:
+			{
+				object imageData;
+			}
+		}
+	}
+	
+	interface
+	{
+		native[GRAPHICS]:
+		{
+			function drawArc(int x, int y, int width, int height, int startAngle, int arcAngle);
+			
+			function drawImage(Image img, int x, int y);
+			
+			function drawLine(int x1, int x2, int x3, int x4);
+			
+			function drawRoundRect(int x, int y, int width, int height, int arcWidth, int arcHeight);
+			
+			function drawString(string str, int x, int y);
+			
+			function drawPolygon(int[] xPoints, int[] yPoints);
+			
+			function drawPolyline(int[] xPoints, int[] yPoints);
+			
+			function drawOval(int x, int y, int width, int height);
+			
+			function fillArc(int x, int y, int width, int height, int startAngle, int arcAngle);
+			
+			function fillRect(int x, int y, int width, int height);
+			
+			function fillRoundRect(int x, int y, int width, int height, int arcWidth, int arcHeight);
+			
+			function fillOval(int x, int y, int width, int height);
+			
+			function fillPolygon(int[] xPoints, int[] yPoints);
+			
+			function loadImage(string str):Image;
+			
+			function repaint(int x, int y, int width, int height);
+			
+			function setClip(int x, int y, int width, int height);
+			
+			function setColor(int red, int green, int blue);
+			
+			function setFont(Font font);
+			
+			function getImageWidth(Image img):int;
+			
+			function getImageHeight(Image img):int;
+			
+			function getStringWidth(string str):int;
+			
+			function getClipX();
+			
+			function getClipY();
+			
+			function getClipWidth();
+			
+			function getClipHeight();
+			
+			function getFont(string name, int style, int size):Font;
+			
+			function getFontHeight(Font font):int;
+			
+			function getDefaultFont():Font;
+			
+			function getCurrentFont():Font;
+		}
+		
+		function drawOval(Rect rect);
+		
+		function drawOval(Point x1, Point x2);
+		
+		function drawRect(int x, int y, int width, int height);
+		
+		function drawRect(Rect rect);
+		
+		function drawRect(Point x1, Point x2);
+		
+		function drawImage(Image img, Point point);
+		
+		function drawString(string s, Point point);
+		
+		function drawSubString(string str, int beginIndex, int endIndex, int x, int y);
+		
+		function drawRoundRect(Rect rect, int arcWidth, int arcHeight);
+		
+		function drawRoundRect(Point x1, Point x2, int arcHeight);
+		
+		function drawLine(Point x1, Point x2);
+		
+		function drawArc(Rect rect, int startAngle, int arcAngle);
+		
+		function drawArc(Point x1, Point x2, int startAngle, int arcAngle);
+		
+		function fillRoundRect(Rect rect, int arcWidth, int arcHeight);
+		
+		function fillRoundRect(Point x1, Point x2, int arcHeight);
+		
+		function fillOval(Rect rect);
+		
+		function fillOval(Point x1, Point x2);
+		
+		function fillRect(Rect rect);
+		
+		function fillRect(Point x1, Point x2);
+		
+		function fillArc(Rect rect, int startAngle, int arcAngle);
+		
+		function fillArc(Point x1, Point x2, int startAngle, int arcAngle);
+		
+		function getClipRect():Rect;
+		
+		function getSubStringWidth(string str, int beginIndex, int endIndex):int;
+		
+		function getFontHeight():int;
+		
+		function setClipRect(Rect rect);
+		
+		function setDefaultFont();
+		
+		function repaint();
+	}
+	
+	function drawOval(Rect rect);
+	{
+		drawOval(rect.left, rect.top, rect.right, rect.bottom);
+	}
+	
+	function drawOval(Point x1, Point x2);
+	{
+		drawOval(x1.x, x1.y, x2.x, x2.y);
+	}
+	
+	function drawRect(int x, int y, int width, int height);
+	{
+		if ((width < 0) || (height < 0)) 
+		{
+			return;
+		}
+		if (height == 0 || width == 0) 
+		{
+	    	drawLine(x, y, x + width, y + height);
+		}
+		else 
+		{
+	    	drawLine(x, y, x + width - 1, y);
+	    	drawLine(x + width, y, x + width, y + height - 1);
+	    	drawLine(x + width, y + height, x + 1, y + height);
+	    	drawLine(x, y + height, x, y + 1);
+		}
+	}
+	
+	function drawRect(Rect rect);
+	{
+		drawRect(rect.left, rect.top, rect.right, rect.bottom);
+	}
+	
+	function drawRect(Point x1, Point x2);
+	{
+		drawRect(x1.x, x1.y, x2.x, x2.y);
+	}
+	
+	function drawImage(Image img, Point point);
+	{
+		drawImage(img, p.x, p.y);
+	}
+		
+	function drawString(string s, Point point);
+	{
+		drawString(s, p.x, p.y);
+	}
+	
+	function drawSubString(string str, int beginIndex, int endIndex, int x, int y);
+	{
+		drawString(subString(str, beginIndex, endIndex), x, y);
+	}
+	
+	function drawRoundRect(Rect rect, int arcWidth, int arcHeight);
+	{
+		drawRoundRect(rect.left, rect.top, rect.right, rect.bottom, arcWidth, arcHeight);
+	}
+	
+	function drawRoundRect(Point x1, Point x2, int arcHeight);
+	{
+		drawRoundRect(x1.x, x1.y, x2.x, x2.y, arcWidth, arcHeight);
+	}
+	
+	function drawLine(Point x1, Point x2);
+	{
+		drawLine(x1.x, x1.y, x2.x, x2.y);
+	}
+	
+	function drawArc(Rect rect, int startAngle, int arcAngle);
+	{
+		drawArc(rect.left, rect.top, rect.right, rect.bottom, startAngle, arcAngle);
+	}
+	
+	function drawArc(Point x1, Point x2, int startAngle, int arcAngle);
+	{
+		drawArc(x1.x, x1.y, x2.x, x2.y, startAngle, arcAngle);
+	}
+	
+	function fillRoundRect(Rect rect, int arcWidth, int arcHeight);
+	{
+		fillRoundRect(rect.left, rect.top, rect.right, rect.bottom, arcWidth, arcHeight);
+	}
+	
+	function fillRoundRect(Point x1, Point x2, int arcHeight);
+	{
+		fillRoundRect(x1.x, x1.y, x2.x, x2.y, arcWidth, arcHeight);
+	}
+	
+	function fillOval(Rect rect);
+	{
+		fillOval(rect.left, rect.top, rect.right, rect.bottom);
+	}
+	
+	function fillOval(Point x1, Point x2);
+	{
+		fillOval(x1.x, x1.y, x2.x, x2.y);
+	}
+	
+	function fillRect(Rect rect);
+	{
+		fillRect(rect.left, rect.top, rect.right, rect.bottom);
+	}
+	
+	function fillRect(Point x1, Point x2);
+	{
+		fillRect(x1.x, x1.y, x2.x, x2.y);
+	}
+	
+	function fillArc(Rect rect, int startAngle, int arcAngle);
+	{
+		fillArc(rect.left, rect.top, rect.right, rect.bottom, startAngle, arcAngle);
+	}
+	
+	function fillArc(Point x1, Point x2, int startAngle, int arcAngle);
+	{
+		fillArc(x1.x, x1.y, x2.x, x2.y, startAngle, arcAngle);
+	}
+	
+	function getClipRect():Rect;
+	{
+		return new Rect(getClipX(), getClipY(), getClipWidth(), getClipHeight());
+	}
+	
+	function getSubStringWidth(string str, int beginIndex, int endIndex):int;
+	{
+		return getStringWidth(String.subString(str, beginIndex, endIndex));
+	}
+	
+	function getFontHeight():int;
+	{
+		return getFontHeight(getCurrentFont());
+	}
+	
+	function setClipRect(Rect rect);
+	{
+		setClip(rect.left, rect.top, rect.right, rect.bottom);
+	}
+	
+	function setDefaultFont();
+	{
+		return setFont(getDefaultFont());
+	}
+	
+	function repaint();
+	{
+		repaint(0, 0, Display.getWidth(), Display.getHeight());
+	}
+}

@@ -1,0 +1,60 @@
+unit Arrays
+{
+	uses String, Math, System;
+	
+	interface
+	{
+		static boolean[] copyOf(boolean[] original, int newLength);
+		static char[] copyOf(char[] original, int newLength);
+		static int[] copyOf(int[] original, int newLength);
+		static float[] copyOf(float[] original, int newLength);
+		static String[] copyOf(String[] original, int newLength);
+		static Object[] copyOf(Object[] original, int newLength);
+	}
+	
+	constructor()
+	{
+	}
+	
+	static boolean[] copyOf(boolean[] original, int newLength);
+	{
+		boolean[] copy = new boolean[newLength];
+		System.arrayCopy(original, 0, copy, 0, Math.min(original.length, newLength));
+        return copy;
+    }
+	
+	static char[] copyOf(char[] original, int newLength);
+	{
+		char[] copy = new char[newLength];
+		System.arrayCopy(original, 0, copy, 0, Math.min(original.length, newLength));
+        return copy;
+    }
+	
+	static int[] copyOf(int[] original, int newLength);
+	{
+		int[] copy = new int[newLength];
+		System.arrayCopy(original, 0, copy, 0, Math.min(original.length, newLength));
+        return copy;
+    }
+	
+	static float[] copyOf(float[] original, int newLength);
+	{
+		boolean[] copy = new boolean[newLength];
+		System.arrayCopy(original, 0, copy, 0, Math.min(original.length, newLength));
+        return copy;
+    }
+	
+	static String[] copyOf(String[] original, int newLength);
+	{
+		String[] copy = new String[newLength];
+		System.arrayCopy(original, 0, copy, 0, Math.min(original.length, newLength));
+        return copy;
+    }
+	
+	static Object[] copyOf(Object[] original, int newLength);
+	{
+		String[] copy = new String[newLength];
+		System.arrayCopy(original, 0, copy, 0, Math.min(original.length, newLength));
+        return copy;
+    }
+}

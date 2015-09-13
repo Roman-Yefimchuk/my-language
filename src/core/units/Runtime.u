@@ -1,0 +1,22 @@
+unit Runtime
+{
+	uses Constants;
+	
+	interface
+	{
+		native[RUNTIME]:
+		{
+			function freeMemory():int;
+			
+			function totalMemory():int;
+			
+			function maxMemory():int;
+			
+			function gc();
+			
+			function halt();
+			
+			function getErrorMessage():string;
+		}
+	}
+}

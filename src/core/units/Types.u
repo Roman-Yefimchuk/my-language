@@ -1,0 +1,54 @@
+unit Types
+{
+	record
+	{
+		Point:
+		{
+			int x;
+			int y;
+		}
+		Rect:
+		{
+			int left;
+			int top;
+			int right;
+			int bottom;
+		}
+		Dimension:
+		{
+			int width;
+			int height;
+		}
+	}
+	
+	interface
+	{
+		function getPoint(int x, int y):Point;
+		
+		function getRect(int left, int top, int right, int bottom):Rect;
+		
+		function getDimension(int width, int height):Dimension;
+		
+		function isPointInRect(Rect rect, Point point):boolean;
+	}
+	
+	function getPoint(int x, int y):Point;
+	{
+		return new Point(x, y);
+	}
+	
+	function getRect(int left, int top, int right, int bottom):Rect;
+	{
+		return new Rect(left, top, right, bottom);
+	}
+	
+	function getDimension(int width, int height):Dimension;
+	{
+		return new Dimension(width, height);
+	}
+	
+	function isPointInRect(Rect rect, Point point):boolean;
+	{
+		return (point.x >= rect.left) && (point.x < rect.right) && (point.y >= rect.top) && (point.y < rect.bottom);
+	}
+}

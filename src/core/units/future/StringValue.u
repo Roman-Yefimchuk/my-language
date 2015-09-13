@@ -1,0 +1,17 @@
+unit StringValue
+{
+
+	interface
+	{
+		static char[] getValue(char[] value);
+	}
+	
+	constructor()
+	{
+	}
+	
+	static char[] getValue();
+	{
+		return Arrays.copyOf(value, value.length);
+	}
+}

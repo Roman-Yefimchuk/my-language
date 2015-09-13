@@ -1,0 +1,43 @@
+unit String
+{
+	uses StringValue;
+	
+	interface
+	{
+		constructor();
+		constructor(String original);
+		constructor(char[] value);
+		char charAt(string x, int index);
+		char[] toCharArray(string x);
+		String toLowerCase();
+		String toUpperCase();
+		String trim();
+		String subString(int beginIndex, int endIndex);
+		int indexOf(String str);
+	}
+	
+	var
+	{
+		char[] value;
+		int offset;
+		int count;
+	}
+	
+	constructor();
+	{
+		this.offset = 0;
+		this.count = 0;
+		this.value = new char[0];
+	}
+	
+	constructor(String original);
+	{
+	}
+	
+	constructor(char[] value);
+	{
+		this.offset = 0;
+		this.count = value.length;
+		this.value = StringValue.from(value);
+	}
+}

@@ -1,0 +1,54 @@
+unit String
+{
+	uses Constants, Integer, Float, Boolean;
+	
+	interface
+	{
+		native[STRING]:
+		{
+			function charAt(string x, int index):char;
+			
+			function toCharArray(string x):char[];
+			
+			function toLowerCase(string x):string;
+			
+			function toUpperCase(string x):string;
+			
+			function trim(string x):string;
+			
+			function subString(string x, int beginIndex, int endIndex):string;
+			
+			function indexOf(string x1, string x2, int lastIndex):int;
+			
+			function createString(char[] chars):string;
+		}
+		
+		function valueOf(boolean x):string;
+		
+		function valueOf(char x):string;
+		
+		function valueOf(int x):string;
+		
+		function valueOf(float x):string;
+	}
+	
+	function valueOf(boolean x):string;
+	{
+		return Boolean.toString(x);
+	}
+	
+	function valueOf(char x):string;
+	{
+		return createString(new char[]{x});
+	}
+	
+	function valueOf(int x):string;
+	{
+		return Integer.toString(x, Integer.DEC);
+	}
+	
+	function valueOf(float x):string;
+	{
+		return Float.toString(x);
+	}
+}

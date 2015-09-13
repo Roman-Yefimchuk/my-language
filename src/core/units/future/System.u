@@ -1,0 +1,20 @@
+unit System
+{
+	uses Constants;
+	
+	interface
+	{
+		native[Constants.SYSTEM]:
+		{
+			static void sleep(int time);
+			static void yield();
+			static void gc();
+			static int currentTimeMillis();
+			static void arrayCopy(object src, int srcPos, object dest, int destPos, int length);
+		}
+	}
+	
+	constructor()
+	{
+	}
+}

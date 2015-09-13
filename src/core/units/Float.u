@@ -1,0 +1,46 @@
+unit Float
+{
+	uses Constants;
+	
+	const
+	{
+		POSITIVE_INFINITY = 1.0 / 0.0;
+		NEGATIVE_INFINITY = -1.0 / 0.0;
+		NaN = 0.0 / 0.0;
+		MAX_VALUE = 3.4028235e+38;
+		MIN_NORMAL = 1.17549435E-38;
+		MIN_VALUE = 1.4e-45;
+		MAX_EXPONENT = 127;
+		MIN_EXPONENT = -126;
+	}
+	
+	interface
+	{
+		native[FLOAT]:
+		{
+			function toString(float f):string;
+			
+			function toHexString(float f):string;
+			
+			function parseFloat(string s):float;
+			
+			function floatToIntBits(float value):int;
+			
+			function intBitsToFloat(int bits):float;
+		}
+		
+		function isNaN(float v):boolean;
+		
+		function isInfinite(float v):boolean;
+	}
+	
+	function isNaN(float v):boolean;
+	{
+		return v != v;
+	}
+	
+	function isInfinite(float v):boolean;
+	{
+		return (v == POSITIVE_INFINITY) || (v == NEGATIVE_INFINITY);
+	}
+}

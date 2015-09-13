@@ -1,0 +1,13 @@
+unit Boolean
+{
+	
+	interface
+	{
+		function toString(boolean value):string;
+	}
+	
+	function toString(boolean value):string;
+	{
+		return value ? "true" : "false";
+	}
+}

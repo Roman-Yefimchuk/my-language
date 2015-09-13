@@ -1,0 +1,129 @@
+unit Math
+{
+	uses Constants;
+	
+	const
+	{
+		PI = 3.1415927;
+		E = 2.7182817;
+	}
+	
+	interface
+	{
+		native[MATH]:
+		{
+			function cos(float a):float;
+			
+			function sin(float a):float;
+			
+			function tan(float a):float;
+			
+			function asin(float a):float;
+			
+			function acos(float a):float;
+			
+			function atan(float a):float;
+			
+			function exp(float a):float;
+			
+			function log(float a):float;
+			
+			function log10(float a):float;
+			
+			function sqrt(float a):float;
+			
+			function atan2(float y, float x);
+			
+			function pow(float a, float b);
+			
+			function floor(float a):float;
+			
+			function random(int a):int;
+			
+			function random(int min, int max):int;
+			
+			function randomize();
+			
+			function getExponent(float f):int;
+		}
+		
+		function sqr(float a):float;
+
+		function sqr(int x):int;
+
+		function toRadians(float angdeg):float;
+
+		function toDegrees(float angrad):float;
+
+		function abs(int a):int;
+
+		function abs(float a):float;
+
+		function max(float a, float b):float;
+
+		function min(float a, float b):float;
+
+		function round(float a):int;
+	}
+	
+	function sqr(float a):float;
+	{
+		return a * a;
+	}
+	
+	function sqr(int x):int;
+	{
+		return a * a;
+	}
+	
+	function toRadians(float angdeg):float;
+	{
+		return angdeg / 180.0 * PI;
+	}
+	
+	function toDegrees(float angrad):float;
+	{
+		return angrad * 180.0 / PI;
+	}
+	
+	function abs(int a):int;
+	{
+		return a < 0 ? -a : a;
+	}
+	
+	function abs(float a):float;
+	{
+		return a <= 0.0 ? 0.0 - a : a;
+	}
+	
+	function max(float a, float b):float;
+	{
+		if (a != a) 
+		{
+			return a;
+		}
+		if ((a == 0.0) && (b == 0.0) && (a == -0.0)) 
+		{
+			return b;
+		}
+		return a >= b ? a : b;
+	}
+	
+	function min(float a, float b):float;
+	{
+		if (a != a) 
+		{
+			return a;
+		}
+		if ((a == 0.0) && (b == 0.0) && (b == -0.0)) 
+		{
+			return b;
+		}
+		return (a <= b) ? a : b;
+	}
+	
+	function round(float a):int;
+	{
+		return (int)floor(a + 0.5);
+	}
+}

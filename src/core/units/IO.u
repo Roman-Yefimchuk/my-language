@@ -1,0 +1,45 @@
+unit IO
+{
+	uses Constants;
+	
+	record
+	{
+		File:
+		{
+			private:
+			{
+				object fileData;
+			}
+		}
+	}
+
+	interface
+	{
+		native[IO]:
+		{
+			function openFile(File file, string fileName);
+			
+			function resetFile(File file);
+			
+			function rewriteFile(File file);
+			
+			function closeFile(File file);
+			
+			function write(File file, int i);
+			
+			function writeChar(File file, char c);
+			
+			function writeInt(File file, int i);
+			
+			function writeFloat(File file, float f);
+			
+			function read(File file):int;
+			
+			function readChar(File file):char;
+			
+			function readInt(File file):int;
+			
+			function readFloat(File file):float;
+		}
+	}
+}

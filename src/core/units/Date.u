@@ -1,0 +1,41 @@
+unit Date
+{
+	uses Constants;
+	
+	record
+	{
+		Time:
+		{
+			int hour;
+			int minute;
+			int second;
+		}
+	}
+	
+	interface
+	{
+		native[DATE]:
+		{
+			function getYear():int;
+			
+			function getMonth():int;
+			
+			function getDay():int;
+			
+			function getHour():int;
+			
+			function getMinute():int;
+			
+			function getSecond():int;
+			
+			function getMillisecond():int;
+		}
+		
+		function getTime():Time;
+	}
+	
+	function getTime():Time;
+	{
+		return new Time(getHour(), getMinute(), getSecond());
+	}
+}

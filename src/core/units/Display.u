@@ -1,0 +1,23 @@
+unit Display
+{
+	uses Types, Constants;
+
+	interface
+	{
+		native[DISPLAY]:
+		{
+			function setFullScreenMode(boolean fullScreen);
+			
+			function getWidth():int;
+			
+			function getHeight():int;
+		}
+		
+		function screenSize():Dimension;
+	}
+	
+	function screenSize():Dimension;
+	{
+		return new Dimension(getWidth(), getHeight());
+	}
+}

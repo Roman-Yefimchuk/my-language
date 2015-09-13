@@ -1,0 +1,29 @@
+unit Events
+{
+	uses Constants;
+	
+	const
+	{
+		VK_LEFT = 37;
+		VK_UP = 38;
+		VK_RIGHT = 39;
+		VK_DOWN = 40;
+		VK_ENTER = 10;
+		VK_SPACE = 32;
+		VK_BACK_SPACE = 8;
+	}
+	
+	interface
+	{
+		native[EVENTS]:
+		{
+			function getX():int;
+			
+			function getY():int;
+			
+			function getMouseAction():int;
+			
+			function keyToAction(int keyCode):boolean;
+		}
+	}
+}
